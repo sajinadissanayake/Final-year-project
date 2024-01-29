@@ -27,8 +27,6 @@ function AddPatient() {
 
     axios.post("http://localhost:3001/AddPatient", { name, email, age, dob, address, pnumber, moh, phm, phi, gnd, dsd, neighbour })
 
-    axios.post("http://localhost:3001/AddPatient", {name, email, age, dob, address, pnumber, moh, phm})
-
     .then(result => {
         console.log(result);
         navigate('/');
@@ -70,12 +68,8 @@ function AddPatient() {
                 </div>
                 
                
-=======
-                <div>
-                    <label htmlFor="">DOB</label>
-                    <input type="date"  name="dob"
-                    onChange={(e) => setdob(e.target.value)}/><br/>
-                </div>
+
+                
 
                 <div>
                     <label htmlFor="">Address</label>
