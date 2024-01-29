@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-//update dob is not working
+//update dob is not workingnh
 function UpdatePatient() {
     const { id } = useParams();
     const [name, setName] = useState('');
