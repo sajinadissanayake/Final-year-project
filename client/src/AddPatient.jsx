@@ -19,11 +19,16 @@ function AddPatient() {
 
 
 
+
     const navigate = useNavigate()
 
    const Submit = (e) => {
     e.preventDefault();
+
     axios.post("http://localhost:3001/AddPatient", { name, email, age, dob, address, pnumber, moh, phm, phi, gnd, dsd, neighbour })
+
+    axios.post("http://localhost:3001/AddPatient", {name, email, age, dob, address, pnumber, moh, phm})
+
     .then(result => {
         console.log(result);
         navigate('/');
@@ -51,6 +56,7 @@ function AddPatient() {
                     <input type="text" placeholder="Enter Age" name="age"
                     onChange={(e) => setAge(e.target.value)}/><br/>
                 </div>
+<<<<<<< HEAD
                 
                 <div>
                  <label htmlFor="">DOB</label>
@@ -66,6 +72,13 @@ function AddPatient() {
                 </div>
                 
                
+=======
+                <div>
+                    <label htmlFor="">DOB</label>
+                    <input type="date"  name="dob"
+                    onChange={(e) => setdob(e.target.value)}/><br/>
+                </div>
+>>>>>>> 51c583ac5deb5ebfcc4afa80d34d54baae8ffc10
                 <div>
                     <label htmlFor="">Address</label>
                     <input type="text"  name="address"
@@ -86,6 +99,7 @@ function AddPatient() {
                     <input type="text"  name="phm"
                     onChange={(e) => setphm(e.target.value)}/><br/>
                 </div>
+<<<<<<< HEAD
                 <div>
                     <label htmlFor="">PHI area</label>
                     <input type="text"  name="phi"
@@ -109,6 +123,8 @@ function AddPatient() {
 
                 
 
+=======
+>>>>>>> 51c583ac5deb5ebfcc4afa80d34d54baae8ffc10
                 <button type="submit">Submit</button>
             </form>
         </div>

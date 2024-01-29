@@ -4,6 +4,7 @@ const patientSchema = new mongoose.Schema({
     name: String,
     email: String,
     age: Number,
+
     address: String,
     dob: {
         type: Date,
@@ -21,6 +22,13 @@ const patientSchema = new mongoose.Schema({
 });
 
     
+
+
+    dob: Date,
+    address: String,
+    pnumber: Number,
+    moh:String,
+})
 
 
 const patientModel = mongoose.model("patients", patientSchema)
