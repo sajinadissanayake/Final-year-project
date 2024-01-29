@@ -24,12 +24,5 @@ const patientSchema = new mongoose.Schema({
     
 
 
-    dob: Date,
-    address: String,
-    pnumber: Number,
-    moh:String,
-})
-
-
 const patientModel = mongoose.model("patients", patientSchema)
 module.exports = patientModel
