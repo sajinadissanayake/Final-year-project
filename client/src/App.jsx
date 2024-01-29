@@ -2,8 +2,8 @@ import { useState } from 'react'
 import './App.css'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import PatientsPg from './patientspg'
-import AddPatient from './addpatient'
+import PatientsPg from './PatientsPg'
+import AddPatient from './AddPatient'
 import UpdatePatient from './UpdatePatient'
 
 function App() {

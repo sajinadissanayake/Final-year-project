@@ -1,51 +1,66 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const cors = require('cors')
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const moment = require('moment');
 
-const patientModel = require('./models/patients')
+const patientModel = require('./models/patients');
 
-const app = express()
-app.use(cors())
-app.use(express.json())
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-mongoose.connect("mongodb://localhost:27017/hospital")
+mongoose.connect("mongodb://localhost:27017/hospital");
 
 app.get('/', (req, res) => {
     patientModel.find({})
-    .then(users => res.json(users))
-    .catch(err => res.json(err))
-})
+        .then(users => res.json(users))
+        .catch(err => res.json(err));
+});
 
-app.get('/getPatient/:id', (req, res) =>{
+app.get('/getPatient/:id', (req, res) => {
     const id = req.params.id;
-    patientModel.findById({_id:id})
-    .then(users => res.json(users))
-    .catch(err => res.json(err))
-})
+    patientModel.findById({ _id: id })
+        .then(users => res.json(users))
+        .catch(err => res.json(err));
+});
 
-app.put('/updatePatient/:id', (req, res) =>{
+app.put('/updatePatient/:id', (req, res) => {
     const id = req.params.id;
-    patientModel.findByIdAndUpdate({_id:id}, {
-        name:req.body.name, 
-        email: req.body.email, 
-        age: req.body.age})
-    .then(users => res.json(users))
-    .catch(err => res.json(err))
-})
+
+    const formattedDate = moment(req.body.dob).format("YYYY-MM-DD");
+
+    patientModel.findByIdAndUpdate({ _id: id }, {
+        name: req.body.name,
+        email: req.body.email,
+        age: req.body.age,
+        dob: formattedDate,
+        address: req.body.address,
+        pnumber: req.body.pnumber,
+        moh: req.body.moh,
+        phm: req.body.phm,
+        phi: req.body.phi,
+        gnd: req.body.gnd,
+        dsd: req.body.dsd,
+        neighbour: req.body.neighbour,
+    })
+        .then(users => res.json(users))
+        .catch(err => res.json(err));
+});
 
 app.delete('/deleteUser/:id', (req, res) => {
     const id = req.params.id;
-    patientModel.findByIdAndDelete({_id: id})
-    .then(res => res.json(res))
-    .catch(err => res.json(err))
-})
+    patientModel.findByIdAndDelete({ _id: id })
+        .then(result => res.json(result))
+        .catch(err => res.json(err));
+});
 
-   app.post("/AddPatient", (req, res) =>{
+app.post("/AddPatient", (req, res) => {
+    console.log(req.body);
     patientModel.create(req.body)
-    .then(users => res.json(users))
-    .catch(err => res.json(err))
-})
+        .then(users => res.json(users))
+        .catch(err => res.json(err));
+});
 
 app.listen(3001, () => {
-    console.log("server is running")
-})
+    console.log("server is running");
+});

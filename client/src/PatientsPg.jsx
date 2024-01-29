@@ -29,6 +29,15 @@ function PatientsPg() {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Age</th>
+                        <th>DOB</th>
+                        <th>Address</th>
+                        <th>Phone number</th>
+                        <th>MOH</th>
+                        <th>PHM</th>
+                        <th>PHI</th>
+                        <th>GND</th>
+                        <th>DSD</th> 
+                        <th>Neighbour</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -39,6 +48,15 @@ function PatientsPg() {
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>{user.age}</td>
+                            <td>{user.dob}</td>
+                            <td>{user.address}</td>
+                            <td>{user.pnumber}</td>
+                            <td>{user.moh}</td>
+                            <td>{user.phm}</td>
+                            <td>{user.phi}</td>
+                            <td>{user.gnd}</td>
+                            <td>{user.dsd}</td>
+                            <td>{user.neighbour}</td>
                             <td>
                                 <Link to={`/updatepatient/${user._id}`} >Update</Link>
                                 <button onClick={(e) => handleDelete(user._id)}>Delete</button>

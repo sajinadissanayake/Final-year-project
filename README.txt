@@ -8,7 +8,6 @@ npm install axios react-router-dom
 cd server
 npm install express mongoose cors nodemon
 
-
 2. In package.json file in server,
      Add   "start": "nodemon index.js"   inside "scripts" brackets
 
