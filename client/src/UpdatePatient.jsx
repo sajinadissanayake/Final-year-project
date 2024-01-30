@@ -10,6 +10,7 @@ function UpdatePatient() {
     const [age, setAge] = useState('');
 
     const [dob, setdob] = useState('');
+    const [gender, setGender] = useState('');
    
     const [address, setAddress] = useState('');
     const [pnumber, setPnumber] = useState('');
@@ -34,6 +35,8 @@ function UpdatePatient() {
                 setName(result.data.name);
                 setEmail(result.data.email);
                 setAge(result.data.age);
+                setGender(result.data.gender);
+                
                 setAddress(result.data.address);
                 setdob(result.data.dob);
                 setPnumber(result.data.pnumber);
@@ -51,7 +54,7 @@ function UpdatePatient() {
 
     const patientUpdate = (e) => {
         e.preventDefault();
-        axios.put("http://localhost:3001/UpdatePatient/" + id, { name, email, age, address, dob, pnumber, moh, phm ,phi, gnd, dsd, neighbour})
+        axios.put("http://localhost:3001/UpdatePatient/" + id, { name, email, age, address, dob,gender, pnumber, moh, phm ,phi, gnd, dsd, neighbour})
             .then(result => {
                 console.log(result);
                 navigate('/');
@@ -90,6 +93,31 @@ function UpdatePatient() {
                     onChange={(e) => setdob(e.target.value)}
                 />
                 </div>
+                <div>
+                <label htmlFor="">Gender</label>
+                <div>
+                    <input
+                        type="radio"
+                        id="male"
+                        name="gender"
+                        value="male"
+                        checked={gender === "male"}
+                        onChange={() => setGender("male")}
+                    />
+                    <label htmlFor="male">Male</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="female"
+                        name="gender"
+                        value="female"
+                        checked={gender === "female"}
+                        onChange={() => setGender("female")}
+                    />
+                    <label htmlFor="female">Female</label>
+                </div>
+            </div>
               
                 <div>
                     <div>

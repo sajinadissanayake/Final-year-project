@@ -4,6 +4,7 @@ const patientSchema = new mongoose.Schema({
     name: String,
     email: String,
     age: Number,
+    gender: String,
 
     address: String,
     dob: {
@@ -18,6 +19,7 @@ const patientSchema = new mongoose.Schema({
     gnd: String,
     dsd: String,
     neighbour: String,
+
    
 });
 

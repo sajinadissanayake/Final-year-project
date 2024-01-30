@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
-
+//rgistraion date 
 function AddPatient() {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [age, setAge] = useState()
     const [dob, setdob] = useState()
+    const [gender, setGender] = useState("male"); // Assuming the default value is male
+
     const [address, setaddress] = useState()
     const [pnumber, setpnumber] = useState()
     const [moh, setmoh] = useState()
@@ -25,7 +27,7 @@ function AddPatient() {
    const Submit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3001/AddPatient", { name, email, age, dob, address, pnumber, moh, phm, phi, gnd, dsd, neighbour })
+    axios.post("http://localhost:3001/AddPatient", { name, email, age, dob, gender, address, pnumber, moh, phm, phi, gnd, dsd, neighbour })
 
     .then(result => {
         console.log(result);
@@ -66,10 +68,32 @@ function AddPatient() {
 
 
                 </div>
-                
-               
 
-                
+            <div>
+                <label htmlFor="">Gender</label>
+                <div>
+                    <input
+                        type="radio"
+                        id="male"
+                        name="gender"
+                        value="male"
+                        checked={gender === "male"}
+                        onChange={() => setGender("male")}
+                    />
+                    <label htmlFor="male">Male</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="female"
+                        name="gender"
+                        value="female"
+                        checked={gender === "female"}
+                        onChange={() => setGender("female")}
+                    />
+                    <label htmlFor="female">Female</label>
+                </div>
+            </div>
 
                 <div>
                     <label htmlFor="">Address</label>
@@ -112,6 +136,36 @@ function AddPatient() {
                     <input type="text"  name="neighbour"
                     onChange={(e) => setneighbour(e.target.value)}/><br/>
                 </div>
+
+
+                {/* ....characteristics ........................................................*/}
+
+
+                <div>
+                <label htmlFor="">Gender</label>
+                <div>
+                    <input
+                        type="radio"
+                        id="male"
+                        name="gender"
+                        value="male"
+                        checked={gender === "male"}
+                        onChange={() => setGender("male")}
+                    />
+                    <label htmlFor="male">Male</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="female"
+                        name="gender"
+                        value="female"
+                        checked={gender === "female"}
+                        onChange={() => setGender("female")}
+                    />
+                    <label htmlFor="female">Female</label>
+                </div>
+            </div>
 
                 
 

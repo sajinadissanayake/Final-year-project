@@ -34,6 +34,7 @@ app.put('/updatePatient/:id', (req, res) => {
         email: req.body.email,
         age: req.body.age,
         dob: formattedDate,
+        gender: req.body.gender,
         address: req.body.address,
         pnumber: req.body.pnumber,
         moh: req.body.moh,

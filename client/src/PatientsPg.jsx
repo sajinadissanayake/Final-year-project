@@ -30,7 +30,7 @@ function PatientsPg() {
                         <th>Email</th>
                         <th>Age</th>
                         <th>DOB</th>
-
+                        <th>gender</th>
                         <th>Address</th>
                         <th>Phone number</th>
                         <th>MOH</th>
@@ -50,7 +50,8 @@ function PatientsPg() {
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>{user.age}</td>
-                            <td>{user.dob}</td>
+                            <td>{user.dob}</td>     
+                            <td>{user.gender}</td>
 
                             <td>{user.address}</td>
                             <td>{user.pnumber}</td>
