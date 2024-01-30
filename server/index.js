@@ -63,11 +63,11 @@ app.post("/AddPatient", (req, res) => {
     console.log(req.body); // Check if the data is being received
     patientModel.create(req.body)
         .then(users => {
-            console.log("User created:", users);
+            console.log("patient created:", users);
             res.json(users);
         })
         .catch(err => {
-            console.error("Error creating user:", err);
+            console.error("Error creating patient:", err);
             res.json(err);
         });
 });

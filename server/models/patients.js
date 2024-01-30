@@ -21,6 +21,13 @@ const patientSchema = new mongoose.Schema({
     dsd: String,
     neighbour: String,
     education: String,
+    physical:String,
+    tobacco:String,
+    tobaccochew:String,
+   alcohol:String,
+   other:String,
+   snacks:String,
+   diseases:String,
 
    
 });

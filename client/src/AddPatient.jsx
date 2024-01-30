@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 //registraion date 
+//nic
 function AddPatient() {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
@@ -19,7 +20,21 @@ function AddPatient() {
     const [gnd, setgnd] = useState()
     const [dsd, setdsd] = useState()
     const [neighbour, setneighbour] = useState()
-    const [education, setEducation] = useState() 
+    const [education, setEducation] = useState("alevel") 
+
+    // characteristics..............................
+
+    const [physical, setPhysical] = useState("moderate_intensity")
+    const [tobacco, setTobacco] = useState("nonuser") 
+    const [tobaccochew, setTobaccochew] = useState("nonuser") 
+    const [alcohol, setAlcohol] = useState("nonuser") 
+    const [other, setOther] = useState("nonuser") 
+    const [snacks, setSnacks] = useState("normaluser") 
+    const [diseases, setDiseases] = useState() 
+    const [allergies, setAllergies] = useState() 
+
+
+
    
 
 
@@ -30,10 +45,11 @@ function AddPatient() {
    const Submit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3001/AddPatient", { name, email, age, dob, gender, address, maritial, pnumber, moh, phm, phi, gnd, dsd, neighbour, education })
+    axios.post("http://localhost:3001/AddPatient", { name, email, age, dob, gender, address, maritial, pnumber, moh,
+                        phm, phi, gnd, dsd, neighbour, education, physical, tobacco, tobaccochew, alcohol,other,snacks,diseases,allergies })
 
-    .then(result => {
-        console.log(result);
+    .then(Response => {
+        console.log(Response);
         navigate('/');
     })
     .catch(err => console.log(err));
@@ -229,8 +245,220 @@ function AddPatient() {
 
                 {/* ....characteristics ........................................................*/}
 
+                <h2>characteristics of the patient</h2>
+                <h2>..............................</h2>
+
+                
+            <div>
+                <h3>Phisical activity</h3>
+                <div>
+                    <input
+                        type="radio"
+                        id="vigorous_intensity"
+                        name="physical"
+                        value="vigorous_intensity"
+                        checked={physical === "vigorous_intensity"}
+                        onChange={() => setPhysical("vigorous_intensity")}
+                    />
+                    <label htmlFor="">vigorous_intensity</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="moderate_intensity"
+                        name="physical"
+                        value="moderate_intensity"
+                        checked={physical === "moderate_intensity"}
+                        onChange={() => setPhysical("moderate_intensity")}
+                    />
+                    <label htmlFor="">moderate_intensity</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="sendantary"
+                        name="physical"
+                        value="sendantary"
+                        checked={physical === "sendantary"}
+                        onChange={() => setPhysical("sendantary")}
+                    />
+                    <label htmlFor="">sendantary</label>
+                </div>
+               
+            </div>
+
+            <h2>..............................</h2>
+
+            <div>
+                <h3>Tobacco smoking</h3>
+                <div>
+                    <input
+                        type="radio"
+                        id="user"
+                        name="tobacco"
+                        value="user"
+                        checked={tobacco === "user"}
+                        onChange={() => setTobacco("user")}
+                    />
+                    <label htmlFor="">user</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="nonuser"
+                        name="tobacco"
+                        value="nonuser"
+                        checked={tobacco === "nonuser"}
+                        onChange={() => setTobacco("nonuser")}
+                    />
+                    <label htmlFor="">nonuser</label>
+                </div>
+            </div>
+
+
+            <h2>..............................</h2>
+
+            <div>
+                <h3>Tobacco chewing</h3>
+                <div>
+                    <input
+                        type="radio"
+                        id="user"
+                        name="tobaccochew"
+                        value="user"
+                        checked={tobaccochew === "user"}
+                        onChange={() => setTobaccochew("user")}
+                    />
+                    <label htmlFor="">user</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="nonuser"
+                        name="tobaccochew"
+                        value="nonuser"
+                        checked={tobaccochew === "nonuser"}
+                        onChange={() => setTobaccochew("nonuser")}
+                    />
+                    <label htmlFor="">nonuser</label>
+                </div>
+            </div>
+
+            <h2>..............................</h2>
+            <div>
+                <h3>Alcohol</h3>
+                <div>
+                    <input
+                        type="radio"
+                        id="user"
+                        name="alcohol"
+                        value="user"
+                        checked={alcohol === "user"}
+                        onChange={() => setAlcohol("user")}
+                    />
+                    <label htmlFor="">user</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="nonuser"
+                        name="alcohol"
+                        value="nonuser"
+                        checked={alcohol === "nonuser"}
+                        onChange={() => setAlcohol("nonuser")}
+                    />
+                    <label htmlFor="">nonuser</label>
+                </div>
+            </div>
+
+
+            <h2>..............................</h2>
+            <div>
+                <h3>other drugs</h3>
+                <div>
+                    <input
+                        type="radio"
+                        id="user"
+                        name="other"
+                        value="user"
+                        checked={other === "user"}
+                        onChange={() => setOther("user")}
+                    />
+                    <label htmlFor="">user</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="nonuser"
+                        name="other"
+                        value="nonuser"
+                        checked={other === "nonuser"}
+                        onChange={() => setOther("nonuser")}
+                    />
+                    <label htmlFor="">nonuser</label>
+                </div>
+            </div>
+
 
             
+            <h2>..............................</h2>
+            <div>
+                <h3>Snacks</h3>
+                <div>
+                    <input
+                        type="radio"
+                        id="normaluser"
+                        name="snacks"
+                        value="normaluser"
+                        checked={snacks=== "normaluser"}
+                        onChange={() => setSnacks("normaluser")}
+                    />
+                    <label htmlFor="">normaluser</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="nonuser"
+                        name="snacks"
+                        value="nonuser"
+                        checked={snacks === "nonuser"}
+                        onChange={() => setSnacks("nonuser")}
+                    />
+                    <label htmlFor="">nonuser</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="heavyuser"
+                        name="snacks"
+                        value="heavyuser"
+                        checked={snacks === "heavyuser"}
+                        onChange={() => setSnacks("heavyuser")}
+                    />
+                    <label htmlFor="">heavyuser</label>
+                </div>
+            </div>
+            <h2>..............................</h2>
+
+            <div>
+                    <label htmlFor=""> Diseases(other special diseases)</label>
+                    <input type="text"  name="diseases"
+                    onChange={(e) => setDiseases(e.target.value)}/><br/>
+            </div>
+
+            <h2>..............................</h2>
+
+            <div>
+                    <label htmlFor=""> allergies</label>
+                    <input type="text"  name="allergies"
+                    onChange={(e) => setAllergies(e.target.value)}/><br/>
+            </div>
+
+
+
+
+
+
 
 
 
