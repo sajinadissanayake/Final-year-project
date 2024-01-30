@@ -31,7 +31,6 @@ function PatientsPg() {
                         <th>Age</th>
                         <th>DOB</th>
                         <th>gender</th>
-
                         <th>Address</th>
                         <th>Maritial</th>
                         <th>Phone number</th>
@@ -42,11 +41,19 @@ function PatientsPg() {
                         <th>DSD</th> 
                         <th>Neighbour</th>
                         <th>Education up to</th>
-
-
                         <th>Action</th>
                     </tr>
                 </thead>
+
+
+
+
+
+
+
+
+
+
                 <tbody>
                      {
                         users.map((user) => (
