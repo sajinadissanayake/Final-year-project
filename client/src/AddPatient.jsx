@@ -61,6 +61,7 @@ function AddPatient() {
         <div>
             <form onSubmit={Submit}>
                 <h2>Add User</h2>
+               
                 <div>
                     <label htmlFor="">Name</label>
                     <input type="text" placeholder="Enter Name" name="name" onChange={(e) => setName(e.target.value)}/><br/>
