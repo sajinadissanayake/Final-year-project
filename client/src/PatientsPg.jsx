@@ -31,7 +31,9 @@ function PatientsPg() {
                         <th>Age</th>
                         <th>DOB</th>
                         <th>gender</th>
+
                         <th>Address</th>
+                        <th>Maritial</th>
                         <th>Phone number</th>
                         <th>MOH</th>
                         <th>PHM</th>
@@ -39,6 +41,8 @@ function PatientsPg() {
                         <th>GND</th>
                         <th>DSD</th> 
                         <th>Neighbour</th>
+                        <th>Education up to</th>
+
 
                         <th>Action</th>
                     </tr>
@@ -54,6 +58,7 @@ function PatientsPg() {
                             <td>{user.gender}</td>
 
                             <td>{user.address}</td>
+                            <td>{user.maritial}</td>
                             <td>{user.pnumber}</td>
                             <td>{user.moh}</td>
                             <td>{user.phm}</td>
@@ -61,6 +66,7 @@ function PatientsPg() {
                             <td>{user.gnd}</td>
                             <td>{user.dsd}</td>
                             <td>{user.neighbour}</td>
+                            <td>{user.education}</td>
 
                             <td>
                                 <Link to={`/updatepatient/${user._id}`} >Update</Link>

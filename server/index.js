@@ -9,6 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 mongoose.connect("mongodb://localhost:27017/hospital");
 
 app.get('/', (req, res) => {
@@ -16,6 +17,8 @@ app.get('/', (req, res) => {
         .then(users => res.json(users))
         .catch(err => res.json(err));
 });
+
+
 
 app.get('/getPatient/:id', (req, res) => {
     const id = req.params.id;
@@ -36,6 +39,7 @@ app.put('/updatePatient/:id', (req, res) => {
         dob: formattedDate,
         gender: req.body.gender,
         address: req.body.address,
+        maritial:req.body.maritial,
         pnumber: req.body.pnumber,
         moh: req.body.moh,
         phm: req.body.phm,
@@ -43,6 +47,7 @@ app.put('/updatePatient/:id', (req, res) => {
         gnd: req.body.gnd,
         dsd: req.body.dsd,
         neighbour: req.body.neighbour,
+        education: req.body.education,
     })
         .then(users => res.json(users))
         .catch(err => res.json(err));
@@ -54,13 +59,19 @@ app.delete('/deleteUser/:id', (req, res) => {
         .then(result => res.json(result))
         .catch(err => res.json(err));
 });
-
 app.post("/AddPatient", (req, res) => {
-    console.log(req.body);
+    console.log(req.body); // Check if the data is being received
     patientModel.create(req.body)
-        .then(users => res.json(users))
-        .catch(err => res.json(err));
+        .then(users => {
+            console.log("User created:", users);
+            res.json(users);
+        })
+        .catch(err => {
+            console.error("Error creating user:", err);
+            res.json(err);
+        });
 });
+
 
 app.listen(3001, () => {
     console.log("server is running");

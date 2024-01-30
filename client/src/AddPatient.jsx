@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
-//rgistraion date 
+//registraion date 
 function AddPatient() {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
@@ -10,13 +10,16 @@ function AddPatient() {
     const [gender, setGender] = useState("male"); // Assuming the default value is male
 
     const [address, setaddress] = useState()
+    const [maritial, setMaritial] = useState("married");
     const [pnumber, setpnumber] = useState()
     const [moh, setmoh] = useState()
+
     const [phm, setphm] = useState()
     const [phi, setphi] = useState()
     const [gnd, setgnd] = useState()
     const [dsd, setdsd] = useState()
-    const [neighbour, setneighbour] = useState() 
+    const [neighbour, setneighbour] = useState()
+    const [education, setEducation] = useState() 
    
 
 
@@ -27,7 +30,7 @@ function AddPatient() {
    const Submit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3001/AddPatient", { name, email, age, dob, gender, address, pnumber, moh, phm, phi, gnd, dsd, neighbour })
+    axios.post("http://localhost:3001/AddPatient", { name, email, age, dob, gender, address, maritial, pnumber, moh, phm, phi, gnd, dsd, neighbour, education })
 
     .then(result => {
         console.log(result);
@@ -100,6 +103,33 @@ function AddPatient() {
                     <input type="text"  name="address"
                     onChange={(e) => setaddress(e.target.value)}/><br/>
                 </div>
+
+                <div>
+                <label htmlFor="">Maritial status</label>
+                <div>
+                    <input
+                        type="radio"
+                        id="married"
+                        name="maritial"
+                        value="married"
+                        checked={maritial === "married"}
+                        onChange={() => setMaritial("married")}
+                    />
+                    <label htmlFor="married">married</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="unmarried"
+                        name="maritial"
+                        value="unmarried"
+                        checked={maritial === "unmarried"}
+                        onChange={() => setMaritial("unmarried")}
+                    />
+                    <label htmlFor="unmarried">unmarried</label>
+                </div>
+            </div>
+
                 <div>
                     <label htmlFor="">Contact Number</label>
                     <input type="text"  name="pnumber"
@@ -137,37 +167,74 @@ function AddPatient() {
                     onChange={(e) => setneighbour(e.target.value)}/><br/>
                 </div>
 
+            <div>
+                <label htmlFor="">Education</label>
+                <div>
+                    <input
+                        type="radio"
+                        id="primary"
+                        name="education"
+                        value="primary"
+                        checked={education === "primary"}
+                        onChange={() => setEducation("primary")}
+                    />
+                    <label htmlFor="">primary</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="secondary"
+                        name="education"
+                        value="secondary"
+                        checked={education === "secondary"}
+                        onChange={() => setEducation("secondary")}
+                    />
+                    <label htmlFor="">secondary</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="olevel"
+                        name="education"
+                        value="olevel"
+                        checked={education === "olevel"}
+                        onChange={() => setEducation("olevel")}
+                    />
+                    <label htmlFor="">olevel</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="alevel"
+                        name="education"
+                        value="alevel"
+                        checked={education === "alevel"}
+                        onChange={() => setEducation("alevel")}
+                    />
+                    <label htmlFor="">alevel</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        id="degree"
+                        name="education"
+                        value="degree"
+                        checked={education === "degree"}
+                        onChange={() => setEducation("degree")}
+                    />
+                    <label htmlFor="">degree</label>
+                </div>
+            </div>
+
 
                 {/* ....characteristics ........................................................*/}
 
 
-                <div>
-                <label htmlFor="">Gender</label>
-                <div>
-                    <input
-                        type="radio"
-                        id="male"
-                        name="gender"
-                        value="male"
-                        checked={gender === "male"}
-                        onChange={() => setGender("male")}
-                    />
-                    <label htmlFor="male">Male</label>
-                </div>
-                <div>
-                    <input
-                        type="radio"
-                        id="female"
-                        name="gender"
-                        value="female"
-                        checked={gender === "female"}
-                        onChange={() => setGender("female")}
-                    />
-                    <label htmlFor="female">Female</label>
-                </div>
-            </div>
+            
 
-                
+
+
+
 
 
                 <button type="submit">Submit</button>
