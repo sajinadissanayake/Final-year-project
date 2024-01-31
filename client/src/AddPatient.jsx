@@ -9,7 +9,8 @@ function AddPatient() {
     const [age, setAge] = useState()
     const [dob, setdob] = useState()
     const [gender, setGender] = useState("male"); // Assuming the default value is male
-
+    const [nic, setNic] = useState()
+    
     const [address, setaddress] = useState()
     const [maritial, setMaritial] = useState("married");
     const [pnumber, setpnumber] = useState()
@@ -45,7 +46,7 @@ function AddPatient() {
    const Submit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3001/AddPatient", { name, email, age, dob, gender, address, maritial, pnumber, moh,
+    axios.post("http://localhost:3001/AddPatient", { name, nic,email, age, dob, gender, address, maritial, pnumber, moh,
                         phm, phi, gnd, dsd, neighbour, education, physical, tobacco, tobaccochew, alcohol,other,snacks,diseases,allergies })
 
     .then(Response => {
@@ -66,6 +67,11 @@ function AddPatient() {
                     <label htmlFor="">Name</label>
                     <input type="text" placeholder="Enter Name" name="name" onChange={(e) => setName(e.target.value)}/><br/>
                 </div>
+                <div>
+                    <label htmlFor="">nic</label>
+                    <input type="text" placeholder="Enter " name="nic" onChange={(e) => setNic(e.target.value)}/><br/>
+                </div>
+                
                 <div>
                     <label htmlFor="">Email</label>
                     <input type="text" placeholder="Enter Email" name="email"
