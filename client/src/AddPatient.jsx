@@ -68,7 +68,7 @@ function AddPatient() {
                 </div>
                 <div>
                     <label htmlFor="">Email</label>
-                    <input type="email" placeholder="Enter Email" name="email"
+                    <input type="text" placeholder="Enter Email" name="email"
                     onChange={(e) => setEmail(e.target.value)}/><br/>
                 </div>
                 <div>
