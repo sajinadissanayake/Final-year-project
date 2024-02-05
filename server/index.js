@@ -2,8 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const moment = require('moment');
+const multer = require('multer');
 
 const patientModel = require('./models/patients');
+const reportsModel = require('./models/reports');
 
 const app = express();
 app.use(cors());
@@ -71,6 +73,34 @@ app.post("/AddPatient", (req, res) => {
             res.json(err);
         });
 });
+
+
+
+////////////////////////////////reports///////////////////////////////////////////////////////////////////////////////
+// Configure Multer in reports
+const Rstorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'reports/'); // Set the destination folder for uploaded files
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname); // Set the file name
+    },
+});
+
+
+const Rupload = multer({ storage: Rstorage });
+
+app.post('/AddReports', Rupload.single('patientReport'), (req, res) => {
+    // Access the uploaded file using req.file
+    const { nic } = req.body;
+    const patientReport = req.file.filename;
+
+    reportsModel.create({ nic, patientReport })
+        .then(user => res.json(user)) 
+        .catch(err => res.json(err));
+ 
+});
+
 
 
 app.listen(3001, () => {

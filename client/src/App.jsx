@@ -5,7 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import PatientsPg from './PatientsPg'
 import AddPatient from './AddPatient'
 import UpdatePatient from './UpdatePatient'
-import PatientList from './patientlist';
+import PatientList from './PatientList'
+import OnePatient from './OnePatient'
+import AddReports from './AddReports'
+
 
 
 
@@ -20,6 +23,10 @@ function App() {
         <Route path='/add' element={<AddPatient />}></Route>
         <Route path='/updatepatient/:id' element={<UpdatePatient />}></Route>
         <Route path='/plist' element={<PatientList />}></Route>
+        <Route path='/patient' element={<OnePatient />}></Route>
+        <Route path='/addreports' element={<AddReports />}></Route>
+       
+        
 
       </Routes>
       </BrowserRouter>
