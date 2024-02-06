@@ -11,6 +11,7 @@ function UpdatePatient() {
 
     const [dob, setdob] = useState('');
     const [gender, setGender] = useState('');
+    const [nic, setNic] = useState()
 
     const [address, setAddress] = useState('');
     const [maritial, setMaritial] = useState('');
@@ -25,6 +26,17 @@ function UpdatePatient() {
     const [neighbour, setNeighbour] = useState('');
     const [education, setEducation] = useState('');
     
+    // characteristics..............................
+
+    const [physical, setPhysical] = useState("moderate_intensity")
+    const [tobacco, setTobacco] = useState("nonuser") 
+    const [tobaccochew, setTobaccochew] = useState("nonuser") 
+    const [alcohol, setAlcohol] = useState("nonuser") 
+    const [other, setOther] = useState("nonuser") 
+    const [snacks, setSnacks] = useState("normaluser") 
+    const [diseases, setDiseases] = useState() 
+    const [allergies, setAllergies] = useState() 
+
 
 
 
@@ -39,6 +51,7 @@ function UpdatePatient() {
                 setAge(result.data.age);
                 setdob(result.data.dob);
                 setGender(result.data.gender);
+                setNic(result.data.nic);
                 
                 setAddress(result.data.address);
                 setMaritial(result.data.maritial);
@@ -58,7 +71,7 @@ function UpdatePatient() {
 
     const patientUpdate = (e) => {
         e.preventDefault();
-        axios.put("http://localhost:3001/UpdatePatient/" + id, { name, email, age,dob,gender ,address, maritial,  pnumber, moh, phm ,phi, gnd, dsd, neighbour, education})
+        axios.put("http://localhost:3001/UpdatePatient/" + id, { name, nic, email, age,dob,gender ,address, maritial,  pnumber, moh, phm ,phi, gnd, dsd, neighbour, education})
             .then(result => {
                 console.log(result);
                 navigate('/');
@@ -74,6 +87,10 @@ function UpdatePatient() {
                 <div>
                     <label htmlFor="name">Name</label>
                     <input type="text" placeholder="Enter Name" value={name} onChange={(e) => setName(e.target.value)} /><br />
+                </div>
+                <div>
+                    <label htmlFor="">nic</label>
+                    <input type="text" placeholder="Enter "value={nic} onChange={(e) => setNic(e.target.value)}/><br/>
                 </div>
                 <div>
                     <label htmlFor="email">Email</label>
