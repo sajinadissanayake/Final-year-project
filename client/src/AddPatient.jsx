@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 //registraion date 
-//nic
+
+
 function AddPatient() {
     const [name, setName] = useState()
     const [email, setEmail] = useState()

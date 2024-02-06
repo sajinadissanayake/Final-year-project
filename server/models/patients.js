@@ -29,6 +29,9 @@ const patientSchema = new mongoose.Schema({
    other:String,
    snacks:String,
    diseases:String,
+   registrationDate: {
+    type: Date,
+    default: Date.now  },
    
 
    

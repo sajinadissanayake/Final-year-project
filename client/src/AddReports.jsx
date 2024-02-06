@@ -24,7 +24,7 @@ import { useNavigate } from 'react-router-dom';
         axios.post('http://localhost:3001/AddReports', formData)
             .then(result => {
                 console.log(result);
-                navigate('/');
+                navigate('/ReportsView');
             })
             .catch(err => console.log(err));
     };

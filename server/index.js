@@ -29,6 +29,8 @@ app.get('/getPatient/:id', (req, res) => {
         .catch(err => res.json(err));
 });
 
+
+
 app.put('/updatePatient/:id', (req, res) => {
     const id = req.params.id;
 
@@ -100,6 +102,17 @@ app.post('/AddReports', Rupload.single('patientReport'), (req, res) => {
         .catch(err => res.json(err));
  
 });
+
+// Retrieve reports data
+app.get('/getReports', (req, res) => {
+    reportsModel.find({})
+      .then(reports => res.json(reports))
+      .catch(err => res.json(err));
+  });
+  
+  // Serve reports files
+  app.use('/reports', express.static('reports'));
+  
 
 
 
