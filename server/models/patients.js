@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 const patientSchema = new mongoose.Schema({
     name: String,
+    nic:String,
     email: String,
     age: Number,
     dob: {
@@ -28,6 +29,10 @@ const patientSchema = new mongoose.Schema({
    other:String,
    snacks:String,
    diseases:String,
+   registrationDate: {
+    type: Date,
+    default: Date.now  },
+   
 
    
 });

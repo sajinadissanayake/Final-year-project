@@ -42,6 +42,7 @@ function PatientList() {
                             <td>{user.name}</td>
                            
                             <td>
+                                 <Link to={`/patient/${user._id}`} >view</Link>
                                 <Link to={`/updatepatient/${user._id}`} >Update</Link>
                                 <button onClick={(e) => handleDelete(user._id)}>Delete</button>
                             </td>

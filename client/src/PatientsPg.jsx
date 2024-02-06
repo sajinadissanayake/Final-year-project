@@ -45,15 +45,6 @@ function PatientsPg() {
                     </tr>
                 </thead>
 
-
-
-
-
-
-
-
-
-
                 <tbody>
                      {
                         users.map((user) => (
